@@ -4,13 +4,17 @@ TIMESTAMP=$(date +%F-%H-%M-%S)
 
 LOGFILE="/var/log/$0-$TIMESTAMP.log"
 
+R="\e[32m"
+G="\e[31m"
+N="\e[0m"
+
 VALIDATE(){
 
     if [ $1 -ne 0 ]
     then
-        echo "Installation failed"
+        echo -e "Installation $R failed $N"
     else
-        echo "$2 is success"
+        echo -e "$2 is $G success $N"
     fi
     
 }
