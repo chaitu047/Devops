@@ -1,5 +1,9 @@
 #!/bin/bash
 
+TIMESTAMP=$(date +%F-%H-%M-%S)
+
+LOGFILE="/var/log/$0-$TIMESTAMP.log"
+
 VALIDATE(){
 
     if [ $1 -ne 0 ]
@@ -17,10 +21,10 @@ then
     exit 1
 fi
 
-yum install git -y
+yum install git -y &>> LOGFILE
 
 VALIDATE $? "Git installation"
 
-yum install mysql -y
+yum install mysql -y &>> LOGFILE
 
 VALIDATE $? "Mysql installation"
