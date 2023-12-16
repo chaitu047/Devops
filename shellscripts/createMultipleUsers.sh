@@ -8,9 +8,9 @@ echo "Enter username and password"
 
 read -p "Enter username:" username
 
-echo
+echo "Enter password:"
 
-read -s "Enter password:" password
+read -s password
 
 echo
 
