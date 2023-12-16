@@ -2,7 +2,7 @@
 
 echo "Create multiple users"
 
-while True
+while true
 do
 echo "Enter username and password"
 
