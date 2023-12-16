@@ -2,7 +2,7 @@
 
 user=$1
 
-if [ $(whoami) -eq 'root' ]
+if [ $(whoami)='root' ]
 then
     echo "root user"
 fi
