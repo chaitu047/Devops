@@ -1,20 +1,37 @@
 #!/bin/bash
 
-line="x-user"
+echo "Create multiple users"
 
-while [ $line != '#' ]
+while True
 do
-    read -p 'Enter username:' line
-    id $line
+echo "Enter username and password"
+
+read -p "Enter username:" username
+
+read -s "Enter password:" password
+
+read -p "Enter expiration days:" days
+
+id $username
+
+if [ $? -eq 0 ]
+then
+    echo "User already exists"
+else
+    useradd -m -p $(openssl passwd -1 $password) -e $(date -d "+$days days" +%Y-%m-%d) $username
 
     if [ $? -eq 0 ]
     then
-        echo "User $line already exists"
-        exit 1
+        echo "User successfully created"
     fi
+fi
 
-    read -p "Enter password" password
-    useradd -m -p $(openssl passwd -1 $password) $line
-    echo ""
-    read -p 'Enter # to stop' line
+read -p "Enter (y/n)" choice
+
+if [ $choice != "y" ]
+then
+    echo "stopping..."
+    break
+fi
+
 done
