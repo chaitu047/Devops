@@ -5,10 +5,10 @@ line="x-user"
 while [ $line!='#' ]
 do
     echo ""
-    read -p line "Enter username:"
+    read -p line "Enter username:\n"
     useradd $line
     passwd $line
     echo ""
-    read -p line "Enter # to stop:"
+    read -p line "Enter # to stop:\n"
 done
 
