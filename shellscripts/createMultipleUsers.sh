@@ -8,7 +8,11 @@ echo "Enter username and password"
 
 read -p "Enter username:" username
 
+echo
+
 read -s "Enter password:" password
+
+echo
 
 read -p "Enter expiration days:" days
 
