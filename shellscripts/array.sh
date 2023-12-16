@@ -5,7 +5,7 @@ do
     arr+=("x-user-$i")
 done
 
-for j in $arr
+for j in ${arr[@]}
 do
     echo $j
 done
